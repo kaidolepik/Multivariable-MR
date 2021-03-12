@@ -58,6 +58,6 @@ G <- matrix(betas[1:6], nrow = 3, ncol = 2, dimnames = list(paste0("snp", 1:3), 
 g <- matrix(betas[7:9], nrow = 3, ncol = 1, dimnames = list(paste0("snp", 1:3), "trait"))
 C <- diag(3) # We have no correlation between SNPs
 R <- diag(2+1) # For simplicity, we assume no gene-gene and gene-trait correlations
-Sigma <- (SEs %*% t(SEs)) * (C %x% R)
+Sigma <- (SEs %*% t(SEs)) * (R %x% C)
 
 V_MMR_delta(G, g, C, Sigma)
